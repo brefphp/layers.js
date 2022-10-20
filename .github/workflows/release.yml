@@ -39,7 +39,7 @@ jobs:
 
             -   name: Retrieve the new NPM version
                 id: npm-version
-                uses: martinbeentjes/npm-get-version-action@v1
+                uses: martinbeentjes/npm-get-version-action@main
 
             -   name: Create a GitHub release
                 uses: softprops/action-gh-release@v1
