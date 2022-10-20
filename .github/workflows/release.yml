@@ -1,11 +1,9 @@
 name: Release
 
-on:
-    release:
-        types: [ created ]
+on: workflow_dispatch
 
 jobs:
-    publish-npm:
+    release:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v3
@@ -14,8 +12,12 @@ jobs:
                     node-version: 16
                     registry-url: https://registry.npmjs.org/
             -   run: npm ci
-            -   run: npm version patch
-            -   run: git push origin --tags
+            -   name: Bump the version
+                run: npm version patch
+            -   name: Push the new commit and git tag
+                run: git push origin --tags
             -   run: npm publish
                 env:
                     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+            -   name: Create a GitHub release
+                uses: softprops/action-gh-release@v1
