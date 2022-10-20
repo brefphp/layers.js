@@ -7,6 +7,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v3
+                with:
+                    # So that we can create git commits
+                    fetch-depth: 0
+            # Set git credentials (https://github.com/actions/checkout/issues/13#issuecomment-724415212)
+            -   run: |
+                    git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                    git config --local user.name "github-actions[bot]"
             -   uses: actions/setup-node@v3
                 with:
                     node-version: 16
