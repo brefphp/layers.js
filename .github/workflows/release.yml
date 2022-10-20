@@ -11,7 +11,7 @@ jobs:
                 with:
                     node-version: 16
                     registry-url: https://registry.npmjs.org/
-            -   run: npm ci
+            -   run: npm install
             -   name: Bump the version
                 run: npm version patch
             -   name: Push the new commit and git tag
