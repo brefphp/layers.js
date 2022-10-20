@@ -2,6 +2,10 @@ name: Release
 
 on: workflow_dispatch
 
+permissions:
+    # To allow creating the GitHub release
+    contents: write
+
 jobs:
     release:
         runs-on: ubuntu-latest
@@ -10,21 +14,34 @@ jobs:
                 with:
                     # So that we can create git commits
                     fetch-depth: 0
+
             # Set git credentials (https://github.com/actions/checkout/issues/13#issuecomment-724415212)
             -   run: |
                     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                     git config --local user.name "github-actions[bot]"
+
             -   uses: actions/setup-node@v3
                 with:
                     node-version: 16
                     registry-url: https://registry.npmjs.org/
+
             -   run: npm install
+
             -   name: Bump the version
                 run: npm version patch
+
             -   name: Push the new commit and git tag
-                run: git push origin --tags
+                run: git push origin && git push origin --tags
+
             -   run: npm publish --access=public
                 env:
                     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+            -   name: Retrieve the new NPM version
+                id: npm-version
+                uses: martinbeentjes/npm-get-version-action@v1
+
             -   name: Create a GitHub release
                 uses: softprops/action-gh-release@v1
+                with:
+                    tag_name: v${{steps.npm-version.outputs.current-version}}
