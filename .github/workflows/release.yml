@@ -30,6 +30,9 @@ jobs:
             -   name: Bump the version
                 run: npm version patch
 
+            -   name: Update layers.json
+                run: npm run update
+
             -   name: Push the new commit and git tag
                 run: git push origin && git push origin --tags
 
