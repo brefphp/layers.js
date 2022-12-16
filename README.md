@@ -4,7 +4,7 @@ This package is useful is you need to reference the Bref layers from a NodeJS ap
 
 > **Note**
 > 
-> If you are using the AWS CDK, you might be interested in [the @bref.sh/constructs package](https://github.com/brefphp/constructs) instead.
+> If you are using the AWS CDK, you might be interested in [the `@bref.sh/constructs` package](https://github.com/brefphp/constructs) instead.
 
 ## Installation
 
