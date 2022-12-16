@@ -8,12 +8,15 @@ const layerVersions = require('./layers.json');
  * @param {'x86'|'arm'} platform
  * @returns {string} Layer ARN
  */
-function functionLayerArn(region, phpVersion, platform) {
+function functionLayerArn(region, phpVersion, platform = 'x86') {
     let layerName = 'php-' + phpVersion.replace('.', '');
     if (platform === 'arm') {
         layerName = 'arm-' + layerName;
     }
-    const version = layerVersions[layerName][region];
+    const version = layerVersions[layerName]?.[region];
+    if (!version) {
+        throw new Error(`PHP version ${phpVersion} in ${region} is not supported`);
+    }
     return `arn:aws:lambda:${region}:534081306603:layer:${layerName}:${version}`;
 }
 
@@ -24,12 +27,15 @@ function functionLayerArn(region, phpVersion, platform) {
  * @param {'x86'|'arm'} platform
  * @returns {string} Layer ARN
  */
-function fpmLayerArn(region, phpVersion, platform) {
+function fpmLayerArn(region, phpVersion, platform = 'x86') {
     let layerName = 'php-' + phpVersion.replace('.', '') + '-fpm';
     if (platform === 'arm') {
         layerName = 'arm-' + layerName;
     }
-    const version = layerVersions[layerName][region];
+    const version = layerVersions[layerName]?.[region];
+    if (!version) {
+        throw new Error(`PHP version ${phpVersion} in ${region} is not supported`);
+    }
     return `arn:aws:lambda:${region}:534081306603:layer:${layerName}:${version}`;
 }
 
@@ -40,6 +46,9 @@ function fpmLayerArn(region, phpVersion, platform) {
  */
 function consoleLayerArn(region) {
     const version = layerVersions.console[region];
+    if (!version) {
+        throw new Error(`Console layer does not exist in region ${region}`);
+    }
     return `arn:aws:lambda:${region}:534081306603:layer:console:${version}`;
 }
 
