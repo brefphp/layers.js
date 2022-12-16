@@ -6,11 +6,13 @@
   "license": "MIT",
   "main": "layers.js",
   "scripts": {
-    "update": "node scripts/update.js"
+    "update": "node scripts/update.js",
+    "test": "vitest"
   },
   "devDependencies": {
     "@aws-sdk/client-lambda": "^3.192.0",
-    "chunk": "^0.0.3"
+    "chunk": "^0.0.3",
+    "vitest": "^0.25.8"
   },
   "engines": {
     "node": ">=12.12"
