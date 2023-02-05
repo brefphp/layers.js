@@ -9,7 +9,7 @@ This package is useful is you need to reference the Bref layers from a NodeJS ap
 ## Installation
 
 ```bash
-npm install @bref/layers
+npm install @bref.sh/layers
 ```
 
 ## Version compatibility with Bref
