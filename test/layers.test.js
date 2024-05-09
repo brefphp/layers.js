@@ -7,12 +7,18 @@ describe('layers', () => {
 
     test('layerVersions', () => {
         expect(layerVersions).to.have.keys([
+            "php-83",
+            "php-83-fpm",
             "php-82",
             "php-82-fpm",
             "php-81",
             "php-81-fpm",
             "php-80",
             "php-80-fpm",
+            "arm-php-83",
+            "arm-php-83-fpm",
+            "arm-php-82",
+            "arm-php-82-fpm",
             "arm-php-81",
             "arm-php-81-fpm",
             "arm-php-80",
@@ -23,6 +29,8 @@ describe('layers', () => {
     });
 
     test('functionLayerArn', () => {
+        expect(functionLayerArn('us-east-1', '8.3')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-83:\d+/);
+        expect(functionLayerArn('us-east-1', '8.3', 'arm')).matches(/arn:aws:lambda:eu-west-1:534081306603:layer:arm-php-83:\d+/);
         expect(functionLayerArn('us-east-1', '8.2')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-82:\d+/);
         expect(functionLayerArn('us-east-1', '8.1', 'arm')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:arm-php-81:\d+/);
 
@@ -32,6 +40,8 @@ describe('layers', () => {
     });
 
     test('fpmLayerArn', () => {
+        expect(fpmLayerArn('us-east-1', '8.3')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-83-fpm:\d+/);
+        expect(fpmLayerArn('us-east-1', '8.3', 'arm')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:arm-php-83-fpm:\d+/);
         expect(fpmLayerArn('us-east-1', '8.2')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-82-fpm:\d+/);
         expect(fpmLayerArn('us-east-1', '8.1', 'arm')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:arm-php-81-fpm:\d+/);
 
