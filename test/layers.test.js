@@ -7,6 +7,8 @@ describe('layers', () => {
 
     test('layerVersions', () => {
         expect(layerVersions).to.have.keys([
+            "php-84",
+            "php-84-fpm",
             "php-83",
             "php-83-fpm",
             "php-82",
@@ -15,6 +17,8 @@ describe('layers', () => {
             "php-81-fpm",
             "php-80",
             "php-80-fpm",
+            "arm-php-84",
+            "arm-php-84-fpm",
             "arm-php-83",
             "arm-php-83-fpm",
             "arm-php-82",
