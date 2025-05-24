@@ -27,7 +27,7 @@ jobs:
             -   name: Set AWS credentials
                 uses: aws-actions/configure-aws-credentials@v1
                 with:
-                    role-to-assume: arn:aws:iam::534081306603:role/bref-layer-js-github-actions
+                    role-to-assume: arn:aws:iam::873528684822:role/bref-layer-js-github-actions
                     role-session-name: bref-layer-js-github-actions
                     aws-region: us-east-1
 
