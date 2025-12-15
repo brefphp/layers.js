@@ -13,7 +13,7 @@ jobs:
     release:
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v3
+            -   uses: actions/checkout@v6
                 with:
                     # So that we can create git commits
                     fetch-depth: 0
@@ -31,9 +31,9 @@ jobs:
                     role-session-name: bref-layer-js-github-actions
                     aws-region: us-east-1
 
-            -   uses: actions/setup-node@v3
+            -   uses: actions/setup-node@v6
                 with:
-                    node-version: 16
+                    node-version: 24
                     registry-url: https://registry.npmjs.org/
 
             -   run: npm install
