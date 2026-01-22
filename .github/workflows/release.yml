@@ -36,6 +36,9 @@ jobs:
                     node-version: 24
                     registry-url: https://registry.npmjs.org/
 
+            # Ensure npm 11.5.1 or later for trusted publishing
+            -   run: npm install -g npm@latest
+
             -   run: npm install
 
             -   run: npm run update
@@ -48,8 +51,6 @@ jobs:
                 run: git push origin && git push origin --tags
 
             -   run: npm publish --access=public
-                env:
-                    NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
             -   name: Retrieve the new NPM version
                 id: npm-version
