@@ -34,7 +34,7 @@ describe('layers', () => {
 
     test('functionLayerArn', () => {
         expect(functionLayerArn('us-east-1', '8.3')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-83:\d+/);
-        expect(functionLayerArn('us-east-1', '8.3', 'arm')).matches(/arn:aws:lambda:eu-west-1:534081306603:layer:arm-php-83:\d+/);
+        expect(functionLayerArn('us-east-1', '8.3', 'arm')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:arm-php-83:\d+/);
         expect(functionLayerArn('us-east-1', '8.2')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:php-82:\d+/);
         expect(functionLayerArn('us-east-1', '8.1', 'arm')).matches(/arn:aws:lambda:us-east-1:534081306603:layer:arm-php-81:\d+/);
 
