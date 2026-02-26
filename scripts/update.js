@@ -4,27 +4,14 @@ const {regions} = require('./regions');
 const chunk = require('chunk');
 
 const layerNames = [
+    'php-85',
     'php-84',
-    'php-84-fpm',
     'php-83',
-    'php-83-fpm',
     'php-82',
-    'php-82-fpm',
-    'php-81',
-    'php-81-fpm',
-    'php-80',
-    'php-80-fpm',
+    'arm-php-85',
     'arm-php-84',
-    'arm-php-84-fpm',
     'arm-php-83',
-    'arm-php-83-fpm',
     'arm-php-82',
-    'arm-php-82-fpm',
-    'arm-php-81',
-    'arm-php-81-fpm',
-    'arm-php-80',
-    'arm-php-80-fpm',
-    'console',
 ];
 
 (async () => {
