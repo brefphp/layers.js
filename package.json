@@ -1,6 +1,6 @@
 {
   "name": "@bref.sh/layers",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Bref.sh AWS Lambda layers",
   "repository": "brefphp/layers.js",
   "license": "MIT",
