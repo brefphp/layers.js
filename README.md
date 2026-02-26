@@ -14,13 +14,13 @@ npm install @bref.sh/layers
 
 ## Version compatibility with Bref
 
-This package is compatible with Bref 2.0 and above.
+This package is compatible with Bref 3.0 and above.
 
 This NPM package and Bref are compatible as long as they have the same **major** version. For example:
 
 - v**2**.x.y of this package is compatible with v**2**.z.w of Bref
 - v**3**.x.y of this package is **NOT** compatible with v**2**.z.w of Bref
-- v**2**.x.y of this package is **NOT** compatible with v**1**.z.w of Bref
+- v**2**.x.y of this package is **NOT** compatible with v**3**.z.w of Bref
 - etc.
 
 All minor and patch versions are not important. Only the major version matters. That means you can upgrade Bref separately from upgrading this package (though it's always good to stay on the latest versions).
@@ -42,10 +42,10 @@ Helpers to get a full ARN:
 import { functionLayerArn, fpmLayerArn, consoleLayerArn } from '@bref.sh/layers';
 
 console.log(functionLayerArn(region, '8.2'));
-console.log(functionLayerArn(region, '8.1', 'arm'));
+console.log(functionLayerArn(region, '8.3', 'arm'));
 
 console.log(fpmLayerArn(region, '8.2'));
-console.log(fpmLayerArn(region, '8.1', 'arm'));
+console.log(fpmLayerArn(region, '8.3', 'arm'));
 
 console.log(consoleLayerArn(region));
 ```

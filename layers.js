@@ -17,7 +17,7 @@ function functionLayerArn(region, phpVersion, platform = 'x86') {
     if (!version) {
         throw new Error(`PHP version ${phpVersion} in ${region} is not supported`);
     }
-    return `arn:aws:lambda:${region}:534081306603:layer:${layerName}:${version}`;
+    return `arn:aws:lambda:${region}:873528684822:layer:${layerName}:${version}`;
 }
 
 /**
@@ -36,7 +36,7 @@ function fpmLayerArn(region, phpVersion, platform = 'x86') {
     if (!version) {
         throw new Error(`PHP version ${phpVersion} in ${region} is not supported`);
     }
-    return `arn:aws:lambda:${region}:534081306603:layer:${layerName}:${version}`;
+    return `arn:aws:lambda:${region}:873528684822:layer:${layerName}:${version}`;
 }
 
 /**
@@ -49,7 +49,7 @@ function consoleLayerArn(region) {
     if (!version) {
         throw new Error(`Console layer does not exist in region ${region}`);
     }
-    return `arn:aws:lambda:${region}:534081306603:layer:console:${version}`;
+    return `arn:aws:lambda:${region}:873528684822:layer:console:${version}`;
 }
 
 module.exports = {

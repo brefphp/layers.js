@@ -68,7 +68,7 @@ async function listLayers(lambdaClient, region) {
 
     for (const layerName of layerNames) {
         const response = await lambdaClient.send(new ListLayerVersionsCommand({
-            LayerName: `arn:aws:lambda:${region}:534081306603:layer:${layerName}`,
+            LayerName: `arn:aws:lambda:${region}:873528684822:layer:${layerName}`,
             MaxItems: 1,
         }));
         const versions = response.LayerVersions;
