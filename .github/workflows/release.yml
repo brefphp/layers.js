@@ -42,7 +42,7 @@ jobs:
             -   run: npm install
 
             -   run: npm run update
-            -   run: git commit -am "Update layer versions"
+            -   run: git add -A && git diff-index --quiet HEAD || git commit -m "Update layer versions"
 
             -   name: Bump the version
                 run: npm version patch
