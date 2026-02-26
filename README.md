@@ -32,20 +32,15 @@ Get a layer version:
 ```js
 import { layerVersions } from '@bref.sh/layers';
 
-console.log(layerVersions['php-82']['us-east-1']);
-console.log(layerVersions['php-82-fpm']['eu-west-3']);
+console.log(layerVersions['php-84']['us-east-1']);
+console.log(layerVersions['arm-php-84']['eu-west-3']);
 ```
 
 Helpers to get a full ARN:
 
 ```js
-import { functionLayerArn, fpmLayerArn, consoleLayerArn } from '@bref.sh/layers';
+import { layerArn } from '@bref.sh/layers';
 
-console.log(functionLayerArn(region, '8.2'));
-console.log(functionLayerArn(region, '8.3', 'arm'));
-
-console.log(fpmLayerArn(region, '8.2'));
-console.log(fpmLayerArn(region, '8.3', 'arm'));
-
-console.log(consoleLayerArn(region));
+console.log(layerArn(region, '8.4'));
+console.log(layerArn(region, '8.4', 'arm'));
 ```
