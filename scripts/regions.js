@@ -19,8 +19,7 @@ const regions = [
     'ap-southeast-2',
     'eu-south-1',
     'eu-south-2',
-    'af-south-1',
-    'me-south-1',
+    'af-south-1'
 ];
 
 module.exports = {regions};
